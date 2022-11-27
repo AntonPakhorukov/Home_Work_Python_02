@@ -37,7 +37,20 @@ match task:
             result += int(i)
         print(result)   
     case 2:
-        print('2')
+        try:
+            number = int(input('Введите число: '))
+        except ValueError:
+            print('Не корректный ввод')
+            raise SystemExit
+        if number < 0:
+            number *= (-1)
+        n = 1
+        print('[ ', end='')
+        for i in range(1, number):
+            n *= i
+            print(n, end=', ')
+        print(n * (i + 1), end='')
+        print(' ]')
     case 3:
         print('3')
     case 4:
