@@ -13,6 +13,10 @@
 
 # 4. Реализуйте алгоритм перемешивания списка.
 
+# 5. Задайте список из N элементов, заполненных числами из промежутка [-N, N]. 
+# Найдите произведение элементов на указанных позициях. Позиции хранятся в фавйле file.txt
+# в одно строке одно число.
+
 try:
     task = int(input('Введите номер задачи: '))
 except ValueError:
@@ -62,7 +66,7 @@ match task:
     case 4:
         import random
         try:
-            variation = int(input('Введите способ решения (1 - ввод списка в одну строку, 2 - в ручную): '))
+            variation = int(input('Введите способ решения (1 - ввод списка в одну строку, 2 - в ручную, 3 - без shuffle): '))
         except ValueError:
             print('Не корректный ввод')
             raise SystemExit
@@ -79,7 +83,19 @@ match task:
                     array.append(input('Вводите данные списка: '))
                 print(array)
                 random.shuffle(array)
-                print(array)      
+                print(array)
+            case 3:
+                n = int(input('Введите длинну списка: '))
+                array = list()
+                for i in range(n):
+                    array.append(input('Вводите данные списка: '))
+                print(array)
+                for i in range(len(array)):
+                    num = random.randrange(0, len(array))
+                    temp = array[i]
+                    array[i] = array[num]
+                    array[num] = temp
+                print(array)
     case 5:
         print('Задачка с файлом')     
     case _:
