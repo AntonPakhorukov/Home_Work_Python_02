@@ -60,6 +60,27 @@ match task:
         print(f'{n}: {round((1 + 1 / n) ** n, 2)}', end='')
         print('}')
     case 4:
-        print('4')
+        import random
+        try:
+            variation = int(input('Введите способ решения (1 - ввод списка в одну строку, 2 - в ручную): '))
+        except ValueError:
+            print('Не корректный ввод')
+            raise SystemExit
+        match variation:
+            case 1:
+                array = list(input('Введите данные списка: '))
+                print(array)
+                random.shuffle(array)
+                print(array)
+            case 2:
+                n = int(input('Введите длинну списка: '))
+                array = list()
+                for i in range(n):
+                    array.append(input('Вводите данные списка: '))
+                print(array)
+                random.shuffle(array)
+                print(array)      
+    case 5:
+        print('Задачка с файлом')     
     case _:
         print('Нет задачи с таким номером')
