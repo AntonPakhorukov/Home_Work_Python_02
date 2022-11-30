@@ -32,10 +32,7 @@ match task:
         if number < 0:
             number *= (-1)
         value = list(str(number))
-        print(value)
-        print(type(value))
         value.remove('.')
-        print(value)
         result = 0
         for i in value:
             result += int(i)
@@ -56,7 +53,7 @@ match task:
         print(n * (i + 1), end='')
         print(' ]')
     case 3:
-        n = int(input())
+        n = int(input('Введите значение n: '))
         print('{', end='')
         for i in range(1, n):
             result = round((1 + 1 / i) ** i, 2)
@@ -97,6 +94,23 @@ match task:
                     array[num] = temp
                 print(array)
     case 5:
-        print('Задачка с файлом')     
+        import random
+        n = int(input('Задайте длину списка: '))
+        any_list = []
+        for i in range(n):
+            any_list.append(random.randint(-n, n))  
+        print(any_list)
+        with open('file.txt', 'w') as data:
+            value = random.randint(1, n)
+            index = []
+            for k in range(value):
+                index.append(random.randint(0, n - 1))
+            for j in range(value):
+                data.write(f'{index[j]}\n')
+        result = 1
+        with open('file.txt', 'r') as data:
+            for line in data:
+                result *= any_list[int(line)]
+        print(result)
     case _:
         print('Нет задачи с таким номером')
